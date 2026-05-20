@@ -227,3 +227,6 @@ __marimo__/
 # Dataset / Images
 # =========================
 data/raw/
+results/otsu_baseline/otsu_masks
+results/otsu_baseline/visualizations
+data/processed/images
