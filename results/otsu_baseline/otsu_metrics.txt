@@ -1,0 +1,18 @@
+Accuracy: 0.5815
+Macro F1-score: 0.4218
+Total inference time: 3.7943 seconds
+Average inference time per image: 0.003536 seconds
+
+Confusion Matrix:
+[[ 30 270]
+ [179 594]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+    no_tumor       0.14      0.10      0.12       300
+       tumor       0.69      0.77      0.73       773
+
+    accuracy                           0.58      1073
+   macro avg       0.42      0.43      0.42      1073
+weighted avg       0.54      0.58      0.56      1073
