@@ -216,3 +216,17 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+# =========================
+# macOS
+# =========================
+.DS_Store
+
+# =========================
+# Dataset / Images
+# =========================
+data/raw/
+results/otsu_baseline/otsu_masks
+results/otsu_baseline/visualizations
+data/processed/images
