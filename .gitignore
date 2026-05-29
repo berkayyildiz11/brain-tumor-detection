@@ -227,6 +227,12 @@ __marimo__/
 # Dataset / Images
 # =========================
 data/raw/
+brain-tumor-mri-dataset/
 results/otsu_baseline/otsu_masks
+
+# =========================
+# Model Weights
+# =========================
+best_baseline_cnn.pth
 results/otsu_baseline/visualizations
 data/processed/images
