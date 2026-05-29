@@ -8,7 +8,7 @@ from torchvision import transforms
 
 
 DATASET_DIR = Path(
-    "data/raw/brain-tumor-mri-data/versions/1/brain-tumor-mri-dataset"
+    r"C:\Users\Hüseyin Yorga\Documents\GitHub\brain-tumor-detection\brain-tumor-mri-dataset"
 )
 
 SPLIT_DIR = Path("data/processed")

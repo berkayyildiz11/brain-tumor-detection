@@ -10,7 +10,7 @@ def main():
     print(f"Downloaded to cache: {cache_path}")
     
     # The exact path where your friend's dataloaders expect the data to be
-    target_dir = Path("data/raw/brain-tumor-mri-data/versions/1/brain-tumor-mri-dataset")
+    target_dir = Path(r"C:\Users\Hüseyin Yorga\Documents\GitHub\brain-tumor-detection\brain-tumor-mri-dataset")
     target_dir.mkdir(parents=True, exist_ok=True)
     
     print(f"Copying and merging files to {target_dir}...")

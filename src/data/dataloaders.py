@@ -8,7 +8,7 @@ from torchvision import transforms
 from src.data.dataset import BrainTumorDataset
 
 DATASET_DIR = Path(
-    "data/raw/brain-tumor-mri-data/versions/1/brain-tumor-mri-dataset"
+    r"C:\Users\Hüseyin Yorga\Documents\GitHub\brain-tumor-detection\brain-tumor-mri-dataset"
 )
 
 IMAGE_SIZE = 224
@@ -21,11 +21,19 @@ train_transform = transforms.Compose([
     transforms.RandomHorizontalFlip(),
     transforms.RandomRotation(10),
     transforms.ToTensor(),
+    transforms.Normalize(
+        mean=[0.5, 0.5, 0.5],
+        std=[0.5, 0.5, 0.5],
+    ),
 ])
 
 test_transform = transforms.Compose([
     transforms.Resize((IMAGE_SIZE, IMAGE_SIZE)),
     transforms.ToTensor(),
+    transforms.Normalize(
+        mean=[0.5, 0.5, 0.5],
+        std=[0.5, 0.5, 0.5],
+    ),
 ])
 
 
@@ -37,6 +45,8 @@ def create_dataloaders():
 
     labels = [label for _, label in full_dataset.samples]
 
+    # 1. First Split: Isolate 15% of the data for the Test Set.
+    # The remaining 85% goes into train_idx.
     train_idx, test_idx = train_test_split(
         range(len(full_dataset)),
         test_size=0.15,
@@ -44,6 +54,8 @@ def create_dataloaders():
         random_state=RANDOM_STATE,
     )
 
+    # 2. Second Split: Take the remaining 85% and split it again.
+    # 15% of this remaining batch becomes the Validation Set.
     train_idx, val_idx = train_test_split(
         train_idx,
         test_size=0.15,
