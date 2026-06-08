@@ -19,6 +19,8 @@ Brain tumor detection from MRI images using preprocessing, a rule-based image-pr
 - Internet access for the first dependency install and dataset download
 - Optional: a CUDA or Apple Silicon MPS device for faster CNN training
 
+- You can go step by step after installations or there is a full workflow under these steps, you may also use it.
+
 ## Install with pip
 
 ```bash
@@ -34,6 +36,27 @@ On Windows PowerShell, activate the environment with:
 .\.venv\Scripts\Activate.ps1
 ```
 
+### Optional: NVIDIA GPU Support (CUDA)
+
+If you have an NVIDIA GPU and want to accelerate CNN training and evaluation with CUDA:
+
+```bash
+pip uninstall torch torchvision torchaudio -y
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
+```
+
+Verify CUDA is available:
+
+```bash
+python -c "import torch; print(torch.cuda.is_available())"
+```
+
+Expected output:
+
+```text
+True
+```
+
 ## Install with uv
 
 ```bash
@@ -46,6 +69,27 @@ On Windows PowerShell, activate the environment with:
 
 ```powershell
 .\.venv\Scripts\Activate.ps1
+```
+
+### Optional: NVIDIA GPU Support (CUDA)
+
+If you have an NVIDIA GPU and want to accelerate CNN training and evaluation with CUDA:
+
+```bash
+uv pip uninstall torch torchvision torchaudio
+uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
+```
+
+Verify CUDA is available:
+
+```bash
+python -c "import torch; print(torch.cuda.is_available())"
+```
+
+Expected output:
+
+```text
+True
 ```
 
 ## Prepare the data
@@ -67,13 +111,13 @@ The download script uses Kaggle's cache download and then copies the dataset int
 Then create the split CSV files:
 
 ```bash
-python src/data/prepare_pipeline.py
+python -m src.data.prepare_pipeline
 ```
 
 Then create the resized preprocessed images and CSV files:
 
 ```bash
-python src/data/run_preprocessing.py
+python -m src.data.run_preprocessing 
 ```
 
 After preprocessing, these files should exist:
@@ -90,7 +134,7 @@ data/processed/images/
 Run the Otsu image-processing baseline:
 
 ```bash
-python src/baseline/otsu_baseline.py
+python -m src.baseline.otsu_baseline
 ```
 
 Outputs are saved to:
@@ -102,7 +146,7 @@ results/otsu_baseline/
 Run the HOG + SVM classical machine-learning model:
 
 ```bash
-python src/classical_ml/hog_svm.py
+python -m src.classical_ml.hog_svm
 ```
 
 Outputs are saved to:
@@ -114,7 +158,7 @@ results/classical_ml/hog_svm/
 Train the baseline CNN:
 
 ```bash
-python src/cnnModel/train.py
+python -m src.cnnModel.train
 ```
 
 The best CNN weights are saved as:
@@ -126,7 +170,7 @@ best_baseline_cnn.pth
 Evaluate the trained CNN:
 
 ```bash
-python src/cnnModel/evaluate.py
+python -m src.cnnModel.evaluate
 ```
 
 Run the CNN evaluation only after `best_baseline_cnn.pth` has been created by the training command.
@@ -135,12 +179,12 @@ Run the CNN evaluation only after `best_baseline_cnn.pth` has been created by th
 
 ```bash
 python src/data/download.py
-python src/data/prepare_pipeline.py
-python src/data/run_preprocessing.py
-python src/baseline/otsu_baseline.py
-python src/classical_ml/hog_svm.py
-python src/cnnModel/train.py
-python src/cnnModel/evaluate.py
+python -m src.data.prepare_pipeline
+python -m src.data.run_preprocessing
+python -m src.baseline.otsu_baseline
+python -m src.classical_ml.hog_svm
+python -m src.cnnModel.train
+python -m src.cnnModel.evaluate
 ```
 
 ## Notes
