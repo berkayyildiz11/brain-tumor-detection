@@ -65,7 +65,7 @@ CFG = {
 
     # HOG parametreleri
     "hog_orientations":    9,
-    "hog_pixels_per_cell": (8, 8),
+    "hog_pixels_per_cell": (16, 16),
     "hog_cells_per_block": (2, 2),
     "hog_block_norm":      "L2-Hys",
 
