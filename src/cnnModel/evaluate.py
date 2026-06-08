@@ -1,8 +1,16 @@
+import os
+import sys
+
+# Add project root to sys.path so 'src' can be found when running directly
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+
 import torch
 from sklearn.metrics import classification_report
 
 # Import your model and data pipeline
-from src.models.baseline_cnn import BaselineCNN
+from src.cnnModel.baseline_cnn import BaselineCNN
 from src.data.dataloaders import create_dataloaders
 
 def main():
