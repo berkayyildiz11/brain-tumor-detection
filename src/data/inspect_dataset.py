@@ -1,11 +1,19 @@
 from pathlib import Path
 from PIL import Image
 
-DATASET_DIR = Path(
-    r"C:\Users\Hüseyin Yorga\Documents\GitHub\brain-tumor-detection\brain-tumor-mri-dataset"
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DATASET_DIR = (
+    PROJECT_ROOT
+    / "data"
+    / "raw"
+    / "brain-tumor-mri-data"
+    / "versions"
+    / "1"
+    / "brain-tumor-mri-dataset"
 )
 
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png"}
+
 
 def main():
     classes = sorted([p.name for p in DATASET_DIR.iterdir() if p.is_dir()])
