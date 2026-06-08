@@ -2,7 +2,7 @@ import torch
 from sklearn.metrics import classification_report
 
 # Import your model and data pipeline
-from baseline_cnn import BaselineCNN
+from src.models.baseline_cnn import BaselineCNN
 from src.data.dataloaders import create_dataloaders
 
 def main():

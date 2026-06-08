@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 
 # Import your model and your friend's data pipeline
-from baseline_cnn import BaselineCNN
+from src.models.baseline_cnn import BaselineCNN
 from src.data.dataloaders import create_dataloaders
 
 def main():
