@@ -11,7 +11,7 @@ DATASET_DIR = Path(
     "C:/Users/metin/Desktop/brain-tumor-mri-dataset"
 )
 
-SPLIT_DIR = Path("C:/Users/metin/Documents/GitHub/brain-tumor-detection/data/processed")
+SPLIT_DIR = Path("brain-tumor-detection/data/processed")
 
 TRAIN_CSV = SPLIT_DIR / "train_split.csv"
 VAL_CSV = SPLIT_DIR / "val_split.csv"
