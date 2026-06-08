@@ -1,0 +1,4 @@
+split,accuracy,macro_auc
+train,1.0,
+val,0.9671052631578947,
+test,0.9664492078285182,
