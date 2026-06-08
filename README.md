@@ -10,6 +10,7 @@ Brain tumor detection from MRI images using preprocessing, a rule-based image-pr
 - Otsu thresholding baseline
 - HOG feature extraction with SVM classification
 - Baseline CNN training and evaluation
+- Experiment log template with hardware and hyperparameter details
 - Result artifacts under `results/`
 
 ## Requirements
@@ -192,4 +193,5 @@ python -m src.cnnModel.evaluate
 - The Otsu and HOG + SVM models use the preprocessed CSV files in `data/processed/`.
 - The CNN dataloader reads the raw dataset from `data/raw/brain-tumor-mri-data/versions/1/brain-tumor-mri-dataset`.
 - CNN training automatically uses CUDA, Apple Silicon MPS, or CPU depending on what PyTorch detects.
+- Hardware details and model hyperparameters are summarized in `EXPERIMENT_LOGS.md`.
 - If imports fail, make sure the virtual environment is active and dependencies were installed from `requirements.txt`.
