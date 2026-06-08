@@ -80,10 +80,9 @@ def preprocess_and_save_split(input_csv, split_name, output_csv):
     split_image_dir.mkdir(parents=True, exist_ok=True)
 
     for idx, row in df.iterrows():
-        csv_path = Path(row["image_path"])
+        original_path = Path(row["image_path"])
         label = int(row["label"])
         label_name = LABEL_NAMES[label]
-        original_path = DATASET_DIR / label_name / csv_path.name
 
         class_dir = split_image_dir / label_name
         class_dir.mkdir(parents=True, exist_ok=True)
@@ -201,7 +200,7 @@ def main():
 
     images, labels = next(iter(train_loader))
 
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    device = "mps" if torch.backends.mps.is_available() else "cpu"
 
     print("\nPreprocessing completed successfully.")
     print("Train samples:", len(train_loader.dataset))
