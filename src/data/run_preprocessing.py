@@ -8,7 +8,7 @@ from torchvision import transforms
 
 
 DATASET_DIR = Path(
-    r"C:\Users\Hüseyin Yorga\Documents\GitHub\brain-tumor-detection\brain-tumor-mri-dataset"
+    "data/raw/brain-tumor-mri-data/versions/1/brain-tumor-mri-dataset"
 )
 
 SPLIT_DIR = Path("data/processed")
@@ -80,9 +80,10 @@ def preprocess_and_save_split(input_csv, split_name, output_csv):
     split_image_dir.mkdir(parents=True, exist_ok=True)
 
     for idx, row in df.iterrows():
-        original_path = Path(row["image_path"])
+        csv_path = Path(row["image_path"])
         label = int(row["label"])
         label_name = LABEL_NAMES[label]
+        original_path = DATASET_DIR / label_name / csv_path.name
 
         class_dir = split_image_dir / label_name
         class_dir.mkdir(parents=True, exist_ok=True)
@@ -200,7 +201,7 @@ def main():
 
     images, labels = next(iter(train_loader))
 
-    device = "mps" if torch.backends.mps.is_available() else "cpu"
+    device = "cuda" if torch.cuda.is_available() else "cpu"
 
     print("\nPreprocessing completed successfully.")
     print("Train samples:", len(train_loader.dataset))
