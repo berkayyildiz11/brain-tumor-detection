@@ -7,8 +7,15 @@ from torchvision import transforms
 
 from src.data.dataset import BrainTumorDataset
 
-DATASET_DIR = Path(
-    r"C:\Users\Hüseyin Yorga\Documents\GitHub\brain-tumor-detection\brain-tumor-mri-dataset"
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DATASET_DIR = (
+    PROJECT_ROOT
+    / "data"
+    / "raw"
+    / "brain-tumor-mri-data"
+    / "versions"
+    / "1"
+    / "brain-tumor-mri-dataset"
 )
 
 IMAGE_SIZE = 224
