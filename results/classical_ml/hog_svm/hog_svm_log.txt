@@ -4,7 +4,7 @@
   Proje kökü   : C:\Users\metin\Documents\GitHub\brain-tumor-detection
   Çıktı dizini : C:\Users\metin\Documents\GitHub\brain-tumor-detection\results\classical_ml\hog_svm
 
-  HOG  → orientations=9, pixels_per_cell=(8, 8), cells_per_block=(2, 2)
+  HOG  → orientations=9, pixels_per_cell=(16, 16), cells_per_block=(2, 2)
   SVM  → kernel=rbf, C=10, gamma=scale
 
 [1/5] Veri yükleniyor...
@@ -33,13 +33,13 @@
   Sınıf dağılımı grafiği kaydedildi.
 
 [2/5] HOG feature extraction...
-  Feature vektör boyutu: 8100
+  Feature vektör boyutu: 1764
   HOG görselleştirmesi kaydediliyor...
 
 [3/5] Label encoding & StandardScaler...
 
 [4/5] SVM eğitimi...
-  Eğitim süresi: 72.9 sn
+  Eğitim süresi: 13.5 sn
 
 [5/5] Değerlendirme...
 
@@ -64,37 +64,37 @@ weighted avg       1.00      1.00      1.00      5168
 ──────────────────────────────────────────────────────────
   VAL SONUÇLARI
 ──────────────────────────────────────────────────────────
-  Accuracy  : 0.9583  (95.83%)
+  Accuracy  : 0.9671  (96.71%)
   Macro AUC : nan
 
               precision    recall  f1-score   support
 
-      glioma       0.98      0.92      0.95       207
-  meningioma       0.91      0.94      0.93       226
-     notumor       0.98      0.97      0.98       255
-   pituitary       0.96      0.99      0.97       224
+      glioma       0.98      0.95      0.96       207
+  meningioma       0.94      0.94      0.94       226
+     notumor       0.99      0.99      0.99       255
+   pituitary       0.96      0.99      0.98       224
 
-    accuracy                           0.96       912
-   macro avg       0.96      0.96      0.96       912
-weighted avg       0.96      0.96      0.96       912
+    accuracy                           0.97       912
+   macro avg       0.97      0.97      0.97       912
+weighted avg       0.97      0.97      0.97       912
 
 
 ──────────────────────────────────────────────────────────
   TEST SONUÇLARI
 ──────────────────────────────────────────────────────────
-  Accuracy  : 0.9469  (94.69%)
+  Accuracy  : 0.9664  (96.64%)
   Macro AUC : nan
 
               precision    recall  f1-score   support
 
-      glioma       0.98      0.92      0.95       243
-  meningioma       0.89      0.92      0.91       266
-     notumor       0.99      0.96      0.98       300
-   pituitary       0.93      0.98      0.95       264
+      glioma       0.99      0.95      0.97       243
+  meningioma       0.92      0.96      0.94       266
+     notumor       1.00      0.97      0.98       300
+   pituitary       0.96      0.98      0.97       264
 
-    accuracy                           0.95      1073
-   macro avg       0.95      0.95      0.95      1073
-weighted avg       0.95      0.95      0.95      1073
+    accuracy                           0.97      1073
+   macro avg       0.97      0.97      0.97      1073
+weighted avg       0.97      0.97      0.97      1073
 
 
 ==========================================================
@@ -103,8 +103,8 @@ weighted avg       0.95      0.95      0.95      1073
   Split            Accuracy    Macro AUC
   --------------------------------------
   train             100.00%          nan
-  val                95.83%          nan
-  test               94.69%          nan
+  val                96.71%          nan
+  test               96.64%          nan
 ==========================================================
 
   Artefaktlar kaydedildi → C:\Users\metin\Documents\GitHub\brain-tumor-detection\results\classical_ml\hog_svm/
